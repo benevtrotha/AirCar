@@ -1,6 +1,12 @@
 
-<%= simple_form_for :car do |f|  %>
-  <%= f.input :brand %>
+<%= simple_form_for @car do |f|  %>
+  <%
+=begin%>
+ <%= f.input :brand %>
+<%
+=end%>
+
+  <%= f.association :car, collection: ['ferrari', 'opel', 'porsche'] %>
   <%= f.input :car_type %>
   <%= f.input :description %>
   <%= f.input :location %>
