@@ -15,9 +15,18 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking.update(start_on: params[:booking][:start_on], end_on: params[:booking][:end_on])
+    redirect_to car_path(@car)
+  end
+
   private
 
   def strong_params
-    params.require(:bookings).permit(:start_on, :end_on)
+    params.require(:booking).permit(:start_on, :end_on)
   end
 end
