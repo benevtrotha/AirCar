@@ -1,16 +1,44 @@
 
 <div class="container">
-<h2>Welcome to the dashboard!</h2>
-
+<h3>Welcome to the dashboard!</h3>
+<h4>Your bookings (renter)</h4>
 <% if @my_bookings.empty? %>
   <h5>You have no bookings.</h5>
 <% else %>
   <% @my_bookings.each do |booking|%>
-  <h5>Booking Start Date:</h5><%=booking.start_on%>
-  <h5>Booking End Date: </h5><%=booking.end_on%>
+  <div class="card">
+    <p class="card-category">Your email: <%=current_user.email%></p>
+    <p class="card-category">Booking Start Date: <%=booking.start_on%></p>
+    <p class="card-category">Booking End Date: <%=booking.end_on%></p>
+  </div>
   <% end %>
 <% end %>
 
+<h4>Your bookings (owner)</h4>
+<% if current_user.cars.empty? %>
+  <h5>You have no cars listed.</h5>
+<% else %>
+  <% current_user.cars.each do |car|%>
+  <div class="card">
+  <div class="car-owner">
+
+    <div class="car-details">
+   <p>Brand: <%= car.brand %></p>
+   <p>Model: <%= car.car_type %></p>
+   <p>Description: <%= car.description%></p>
+
+
+   <p>Location: <%= car.location %></p>
+    </div>
+    <div class="car-bookings">
+      <% car.bookings.each do |booking| %>
+       <p class="card-category">Booking Start Date: <%=booking.start_on%></p>
+       <p class="card-category">Booking End Date: <%=booking.end_on%></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+  <% end %>
+<% end %>
 
 </div>
-<%# <%= current_user.cars.bookings %>

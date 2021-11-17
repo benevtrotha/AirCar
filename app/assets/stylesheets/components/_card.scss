@@ -1,0 +1,27 @@
+.card {
+  margin-bottom: 8px;
+}
+
+.car-owner {
+    // align-items: flex-start;
+    justify-content: space-between;
+    display: block;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
+
+.card-category {
+  // background-size: cover;
+  // background-position: center;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // position: relative
+}
