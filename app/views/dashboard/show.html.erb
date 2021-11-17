@@ -1,12 +1,13 @@
 
 <div class="container">
-<h1>Welcome to the dashboard!</h1>
+<h2>Welcome to the dashboard!</h2>
 
 <% if @my_bookings.empty? %>
-  <p>You have no bookings.</p>
+  <h5>You have no bookings.</h5>
 <% else %>
   <% @my_bookings.each do |booking|%>
-  <%= booking.end_on %>
+  <h5>Booking Start Date:</h5><%=booking.start_on%>
+  <h5>Booking End Date: </h5><%=booking.end_on%>
   <% end %>
 <% end %>
 
