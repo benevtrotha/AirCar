@@ -1,11 +1,5 @@
-<h1>Add a new car:</h1>
-<div class="container">
-  <%= simple_form_for @car do |f|  %>
-    <%= f.input :brand %>
-    <%= f.input :car_type %>
-    <%= f.input :description %>
-    <%= f.input :location %>
-    <%= f.input :price %>
-    <%= f.submit %>
-  <% end %>
-</div>
+
+ <div class="container">
+ <h1>Add a new car:</h1>
+ <%= render 'form', car: @car %>
+ </div>
