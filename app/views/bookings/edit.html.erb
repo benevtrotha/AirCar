@@ -1,8 +1,5 @@
-<%= form_for(@booking) do |f| %>
-<%= f.brand :brandle %>
-<%= f.car_type :car_type %>
-<%= f.description :description %>
-<%= f.location :location %>
-<%= f.price :price %>
+<%= simple_form_for(@booking) do |f| %>
+<%= f.input :start_on %>
+<%= f.input :end_on %>
 <%= f.submit %>
 <% end %>
