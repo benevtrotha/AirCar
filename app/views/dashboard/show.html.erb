@@ -1,0 +1,15 @@
+
+<div class="container">
+<h1>Welcome to the dashboard!</h1>
+
+<% if @my_bookings.empty? %>
+  <p>You have no bookings.</p>
+<% else %>
+  <% @my_bookings.each do |booking|%>
+  <%= booking.end_on %>
+  <% end %>
+<% end %>
+
+
+</div>
+<%# <%= current_user.cars.bookings %>
