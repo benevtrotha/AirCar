@@ -54,9 +54,9 @@ lambo = Car.create!(
     brand: "Lamborghini",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Berlin",
-    car_image: "https://images.unsplash.com/photo-1599135343721-6c8d4c1b8b58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1985&q=80"
+    car_image: "https://images.unsplash.com/photo-1532581140115-3e355d1ed1de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
 
 ferrari = Car.create!(
@@ -64,7 +64,7 @@ ferrari = Car.create!(
     brand: "Ferrari",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Paris",
     car_image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
@@ -74,7 +74,7 @@ lexus = Car.create!(
     brand: "Lexus",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Munich",
     car_image: "https://images.unsplash.com/photo-1577496549804-8b05f1f67338?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
@@ -83,7 +83,7 @@ aston = Car.create!(
     brand: "Aston Martin",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Sao Paolo",
     car_image: "https://images.unsplash.com/photo-1589469526531-7d31afa07f3a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80"
   )
@@ -93,7 +93,7 @@ tesla = Car.create!(
     brand: "Tesla",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Dubai",
     car_image: "https://images.unsplash.com/photo-1576221162298-3d9f04e9f661?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
@@ -103,7 +103,7 @@ porsche = Car.create!(
     brand: "Porsche",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Berlin",
     car_image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
@@ -113,7 +113,7 @@ mercedes = Car.create!(
     brand: "Mercedes-Benz",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Frankfurt",
     car_image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
@@ -123,7 +123,7 @@ bmw = Car.create!(
     brand: "BMW",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Paris",
     car_image: "https://images.unsplash.com/flagged/photo-1553505192-acca7d4509be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80"
   )
@@ -133,7 +133,7 @@ volvo = Car.create!(
     brand: "Volvo",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Geneva",
     car_image: "https://images.unsplash.com/photo-1557323137-bd6bd20fe022?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
@@ -143,7 +143,7 @@ audi = Car.create!(
     brand: "Audi",
     car_type: Faker::Vehicle.model,
     description: Faker::Vehicle.car_type,
-    price: rand(1000..1_000_000),
+    price: rand(200..50_000),
     location: "Toronto",
     car_image: "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
   )
