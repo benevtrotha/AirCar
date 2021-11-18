@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   BRAND = ['Ferrari', 'Porsche', 'Lamborghini', 'Aston Martin', 'Rolls Royce',
     'Audi', 'Mercedes', 'Tesla', 'BMW', 'Lexus', 'Jaguar', 'Cadillac', 'Maserati',
