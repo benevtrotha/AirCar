@@ -1,6 +1,8 @@
 <div class="banner" style="background-image: url(https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1932&q=80);">
 <div class="container-button">
-<button id="button"><%= link_to "Rent a Car", cars_path %></button>
+<%= link_to cars_path do %>
+<button id="button">Rent a Car</button>
+<% end %>
 </div>
 </div>
 <div class="title">
