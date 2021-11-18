@@ -1,5 +1,13 @@
 .card {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  display: grid;
+  grid-template-columns: 240px 1fr 1fr;
+  grid-template-rows: 50px 1fr 50px;
+}
+
+.img-thumbnail {
+  width: 200px;
+  
 }
 
 .car-owner {
