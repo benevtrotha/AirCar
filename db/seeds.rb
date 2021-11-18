@@ -41,7 +41,7 @@ cars = []
     user: user1,
     brand: Faker::Vehicle.manufacture,
     car_type: Faker::Vehicle.model,
-    description: Faker::Vehicle.standard_specs,
+    description: Faker::Vehicle.car_type,
     price: rand(1000..1_000_000),
     location: Faker::Address.city
   )
