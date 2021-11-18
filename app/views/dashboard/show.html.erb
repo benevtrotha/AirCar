@@ -8,9 +8,9 @@
   <% @my_bookings.each do |booking|%>
   <div class="card">
     <p class="card-category">Your email: <%=current_user.email%></p>
-    <p class="card-category"><%= image_tag(booking.car.car_image, class:"img-thumbnail") %></p>
     <p class="card-category">Booking Start Date: <%=booking.start_on%></p>
     <p class="card-category">Booking End Date: <%=booking.end_on%></p>
+    <p class="card-category"><%= image_tag(booking.car.car_image, class:"img-thumbnail") %></p>
   </div>
   <% end %>
 <% end %>
