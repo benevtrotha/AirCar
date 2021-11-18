@@ -14,7 +14,8 @@ user1 = User.create!(
   drivers_license: Faker::DrivingLicence.british_driving_licence,
   address: "Berlin",
   email: "user1@users.com",
-  password: "123456"
+  password: "123456",
+  photo_url: Faker::Avatar.image
 )
 user2 = User.create!(
   first_name: Faker::Name.first_name,
@@ -23,7 +24,8 @@ user2 = User.create!(
   drivers_license: Faker::DrivingLicence.british_driving_licence,
   address: "Paris",
   email: "user2@users.com",
-  password: "123456"
+  password: "123456",
+  photo_url: Faker::Avatar.image
 )
 user3 = User.create!(
   first_name: Faker::Name.first_name,
@@ -32,7 +34,8 @@ user3 = User.create!(
   drivers_license: Faker::DrivingLicence.british_driving_licence,
   address: "Toronto",
   email: "user3@users.com",
-  password: "123456"
+  password: "123456",
+  photo_url: Faker::Avatar.image
 )
 
 user4 = User.create!(
@@ -42,7 +45,8 @@ user4 = User.create!(
   drivers_license: Faker::DrivingLicence.british_driving_licence,
   address: "Frankfurt",
   email: "user4@users.com",
-  password: "123456"
+  password: "123456",
+  photo_url: Faker::Avatar.image
   )
 
 lambo = Car.create!(
