@@ -1,0 +1,19 @@
+<style>
+    .card-custom {
+        max-width: 250px;
+    }
+</style>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between flex-wrap" style="padding-top: 85px;">
+      <%= @brands.each_with_index do |brand, index| %>
+        <%= link_to cars_path(brand: brand) do %>
+        <div class="card" style="width: 18rem; margin-top: 50px;">
+          <img class="card-img-top" src=<%= "#{@images[index]}" %> alt="Card image cap">
+          <div class="card-body">
+          <h5 class="card-title"><%= brand %></h5>
+          </div>
+      </div>
+      <% end %>
+      <% end %>
+  </div>
+</div>

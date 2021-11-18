@@ -1,8 +1,13 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
+  def brands
+    @brands = Car.brands
+    @images = Car.images
+  end
+
   def index
-    @cars = Car.all
+    @cars = Car.where(brand: params[:brand])
   end
 
   def show
