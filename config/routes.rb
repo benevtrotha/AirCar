@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # resources :users do
   #   resources :bookings
   # end
+  get "/brands", to: "cars#brands", as: "brands"
   resources :cars do
     resources :bookings, only: [:new, :create]
   end
