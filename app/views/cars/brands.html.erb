@@ -3,17 +3,19 @@
         max-width: 250px;
     }
 </style>
-  <div class="container mt-5">
-    <div class="d-flex justify-content-between flex-wrap" style="padding-top: 85px;">
-      <%= @brands.each_with_index do |brand, index| %>
-        <%= link_to cars_path(brand: brand) do %>
-        <div class="card" style="width: 18rem; margin-top: 50px;">
-          <img class="card-img-top" src=<%= "#{@images[index]}" %> alt="Card image cap">
-          <div class="card-body">
-          <h5 class="card-title"><%= brand %></h5>
+<div class="container">
+  <div class="container-brandcard mt-5">
+    <div class="d-flex justify-content-between flex-wrap" style="padding-top: 25px;">
+      <% @brands.each_with_index do |brand, index| %>
+        <%= link_to cars_path(brand: brand), class: "text-decoration-none" do %>
+          <div class="card" style="width: 18rem; margin-top: 38px;">
+            <img class="card-img-top" style="height: 14rem;" src=<%= "#{@images[index]}" %> alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= brand %></h5>
+            </div>
           </div>
-      </div>
+        <% end %>
       <% end %>
-      <% end %>
+    </div>
   </div>
 </div>
