@@ -1,69 +1,75 @@
 
+
 <div class="container">
   <h2 class="welcome"><strong>Welcome to the dashboard!</strong></h2>
   <br>
-  <br>
-  <div class="d-flex">
-    <div class="bookings px-2">
-      <h3>Your bookings (renter)</h3>
-      <% if @my_bookings.empty? %>
-        <h5>You have no bookings.</h5>
-      <% else %>
-        <% @my_bookings.each do |booking|%>
-          <div class="card-product">
-          <%= image_tag(booking.car.car_image, class:"img-box-card") %>
-            <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
-              <div class="pr-4">
-                <p><strong>Brand: </strong><%=booking.car.brand%></p>
-                <p><strong>Model: </strong><%=booking.car.car_type%></p>
-                <p><strong>Description: </strong><%=booking.car.description%></p>
-                <p><strong>Location: </strong><%=booking.car.location%></p>
-                <p><strong>Price:</strong> $<%=number_with_delimiter(booking.car.price)%></p>
-              </div>
-              <div>
-                <p><strong>Start Date: </strong><%=booking.start_on.strftime("%B %d, %Y")%></p>
-                <p><strong>End Date: </strong><%=booking.end_on.strftime("%B %d, %Y")%></p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+</div>
 
-    <div>
-      <div class="bookings">
-        <h3>Your bookings (owner)</h3>
-          <% if current_user.cars.empty? %>
-            <h5>You have no cars listed.</h5>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="myResas-tab" data-toggle="tab" href="#myResas" role="tab" aria-controls="myResas" aria-selected="true">My Reservations</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="myCars-tab" data-toggle="tab" href="#myCars" role="tab" aria-controls="myCars" aria-selected="false">My Cars</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="myResas" role="tabpanel" aria-labelledby="myResas-tab">
+
+    <div class="container">
+      <div class="d-flex">
+
+        <div class="bookings">
+          <div class="dashboard-titles">
+          Your bookings (renter)
+          </div>
+          <br>
+          <% if @my_bookings.empty? %>
+            <h5>You have no bookings.</h5>
           <% else %>
-          <% current_user.cars.each do |car|%>
-            <% if car.bookings.size > 0 %>
+            <% @my_bookings.each do |booking|%>
               <div class="card-product">
-              <% if car.car_image %>
-                <%= image_tag car.car_image %>
-              <% elsif car.photo.attached? %>
-                <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+
+              <% if booking.car.car_image %>
+                <%= image_tag booking.car.car_image, height: 300, width: 400, crop: :fill  %>
+              <% elsif booking.car.photo.attached? %>
+                <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
               <% else %>
-                <%= image_tag "no-image.jpeg" %>
+                <%= image_tag "no-image.jpeg", height: 300, width: 400, crop: :fill  %>
               <% end %>
+
                 <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
                   <div class="pr-4">
-                    <p><strong>Brand: </strong><%= car.brand %></p>
-                    <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
+                    <p><strong>Brand: </strong><%=booking.car.brand%></p>
+                    <p><strong>Model: </strong><%=booking.car.car_type%></p>
+                    <p><strong>Description: </strong><%=booking.car.description%></p>
+                    <p><strong>Location: </strong><%=booking.car.location%></p>
+                    <p><strong>Price:</strong> $<%=number_with_delimiter(booking.car.price)%></p>
                   </div>
                   <div>
-                    <% car.bookings.each do |booking| %>
-                      <p><strong>Start Date: </strong><%=booking.start_on.strftime("%B %d, %Y")%></p>
-                      <p><strong>End Date: </strong><%=booking.end_on.strftime("%B %d, %Y")%></p>
-                    <% end %>
+                    <p><strong>Start Date: </strong><%=booking.start_on.strftime("%B %d, %Y")%></p>
+                    <p><strong>End Date: </strong><%=booking.end_on.strftime("%B %d, %Y")%></p>
                   </div>
                 </div>
               </div>
-              <br>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
+
       </div>
+
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="myCars" role="tabpanel" aria-labelledby="myCars-tab">
+    <div class="container">
+      <div class="d-flex">
+
+        <div class="bookings pr-5">
+          <div class="dashboard-titles">
+          These are your cars currently booked:
+
       <div class="bookings">
       <h3>Your cars (owner)</h3>
         <% if current_user.cars.empty? %>
@@ -87,13 +93,79 @@
                 <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
               </div>
             </div>
+          <% end %>
+          <% end %>
           </div>
           <br>
+            <% if current_user.cars.empty? %>
+              <h5>You have no cars listed.</h5>
+            <% else %>
+              <% current_user.cars.each do |car|%>
+                <% if car.bookings.size > 0 %>
+
+                  <div class="card-product">
+                    <% if car.car_image %>
+                      <%= image_tag car.car_image, height: 300, width: 500, crop: :fill %>
+                    <% elsif car.photo.attached? %>
+                      <%= cl_image_tag car.photo.key, height: 300, width: 500, crop: :fill %>
+                    <% else %>
+                      <%= image_tag “no-image.jpeg”, height: 300, width: 500, crop: :fill %>
+                    <% end %>
+
+                    <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
+                      <div class="pr-4">
+                        <p><strong>Brand: </strong><%= car.brand %></p>
+                        <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
+                      </div>
+                      <div>
+                        <% car.bookings.each do |booking| %>
+                          <p><strong>Start Date: </strong><%=booking.start_on.strftime("%B %d, %Y")%></p>
+                          <p><strong>End Date: </strong><%=booking.end_on.strftime("%B %d, %Y")%></p>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                <% end %>
+              <% end %>
+
           <% end %>
-        <% end %>
+        </div>
+
+        <div class="bookings">
+          <div class="dashboard-titles">
+          Your cars (owner)
+          </div>
+          <br>
+            <% if current_user.cars.empty? %>
+                <h5>You have no cars listed.</h5>
+            <% else %>
+            <% current_user.cars.each do |car|%>
+              <div class="card-product">
+                <% if car.car_image %>
+                  <%= image_tag car.car_image, height: 300, width: 500, crop: :fill %>
+                <% elsif car.photo.attached? %>
+                  <%= cl_image_tag car.photo.key, height: 300, width: 500, crop: :fill %>
+                <% else %>
+                  <%= image_tag "no-image.jpeg", height: 300, width: 400, crop: :fill %>
+                <% end %>
+                <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
+                  <div class="pr-4">
+                    <p><strong>Brand: </strong><%= car.brand %></p>
+                    <p><strong>Model: </strong><%= car.car_type %></p>
+                    <p><strong>Description: </strong><%= car.description%></p>
+                    <p><strong>Location: </strong><%= car.location %></p>
+                    <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-
-
 </div>
