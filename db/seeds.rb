@@ -59,7 +59,7 @@ lambo = Car.create!(
     car_image: "https://images.unsplash.com/photo-1532581140115-3e355d1ed1de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
 
-ferrari = Car.create!(
+ferrari1 = Car.create!(
     user: user1,
     brand: "Ferrari",
     car_type: Faker::Vehicle.model,
@@ -68,6 +68,57 @@ ferrari = Car.create!(
     location: "Paris",
     car_image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
   )
+
+  ferrari2 = Car.create!(
+    user: user1,
+    brand: "Ferrari",
+    car_type: Faker::Vehicle.model,
+    description: Faker::Vehicle.car_type,
+    price: rand(200..50_000),
+    location: "Berlin",
+    car_image: "https://images.unsplash.com/photo-1530940031329-f884cdcf65c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+  )
+
+  ferrari3 = Car.create!(
+    user: user1,
+    brand: "Ferrari",
+    car_type: Faker::Vehicle.model,
+    description: Faker::Vehicle.car_type,
+    price: rand(200..50_000),
+    location: "Frankfurt",
+    car_image: "https://images.unsplash.com/photo-1627667928346-5fc86d099a5c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+  )
+
+  ferrari4 = Car.create!(
+    user: user1,
+    brand: "Ferrari",
+    car_type: Faker::Vehicle.model,
+    description: Faker::Vehicle.car_type,
+    price: rand(200..50_000),
+    location: "Frankfurt",
+    car_image: "https://images.unsplash.com/photo-1596449605002-b96b1086c887?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+  )
+
+  ferrari5 = Car.create!(
+    user: user1,
+    brand: "Ferrari",
+    car_type: Faker::Vehicle.model,
+    description: Faker::Vehicle.car_type,
+    price: rand(200..50_000),
+    location: "Frankfurt",
+    car_image: "https://images.unsplash.com/photo-1555472287-c21a30fef377?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+  )
+
+  ferrari6 = Car.create!(
+    user: user1,
+    brand: "Ferrari",
+    car_type: Faker::Vehicle.model,
+    description: Faker::Vehicle.car_type,
+    price: rand(200..50_000),
+    location: "Frankfurt",
+    car_image: "https://images.unsplash.com/photo-1517994112540-009c47ea476b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506&q=80"
+  )
+
 
 lexus = Car.create!(
     user: user1,
@@ -157,7 +208,7 @@ audi = Car.create!(
 
   Booking.create!(
     user: user4,
-    car: ferrari,
+    car: ferrari2,
     start_on: Faker::Date.backward(days: 14),
     end_on: Faker::Date.forward(days: 14)
   )
