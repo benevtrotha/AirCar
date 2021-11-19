@@ -8,3 +8,29 @@
   <button type="button" class="btn btn-success"><%= link_to "Add Booking", new_car_booking_path(@car) %></button>
   <button type="button" class="btn btn-success"><%= link_to "Update Booking", edit_booking_path %></button>
 </div>
+
+<div class="container mt-5">
+  <div class="d-flex justify-content-between flex-wrap" style="padding-top: 85px;">
+    <% @cars.each do |car| %>
+      <div class="card card-custom">
+        <% if car.car_image %>
+          <%= image_tag car.car_image %>
+        <% elsif car.photo.attached? %>
+          <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%#placeholder %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to car.brand, car_path(car) %></h5>
+          <p class="card-text">
+            <%= car.brand %>
+            <%= car.car_type %>
+            <%= car.description %>
+            <%= car.location %>
+            <%= car.price %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
