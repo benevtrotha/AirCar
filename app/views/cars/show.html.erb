@@ -15,9 +15,7 @@
             <%= @car.location %>
             <%= @car.price %>
             <div>
-              <button type="button" class="btn btn-success"><%= link_to "Back to all Cars", cars_path %></button>
-              <button type="button" class="btn btn-success"><%= link_to "Add Booking", new_car_booking_path(@car) %></button>
-              <button type="button" class="btn btn-success"><%= link_to "Update Booking", edit_booking_path %></button>
+              <button type="button" class="btn btn-success"><%= link_to "Rent Me", new_car_booking_path(@car) %></button>
             </div>
           </p>
         </div>
