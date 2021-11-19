@@ -1,15 +1,15 @@
-<div class="wrap">
+<%# <div class="wrap">
    <div class="search">
       <input type="text" class="searchTerm" placeholder="Which brand are you looking for?">
       <button type="submit" class="searchButton">
         <i class="fa fa-search"></i>
      </button>
    </div>
-</div>
+</div> %>
 
 <div class="conatiner">
   <div class="container-brandcard mt-5">
-    <div class="d-flex justify-content-between flex-wrap" style="padding-top: 85px;">
+    <div class="d-flex flex-wrap" style="padding-top: 85px;">
       <% @cars.each do |car| %>
         <div class="card card-extra-height" style="width: 18rem; margin-top: 38px;">
             <% if car.car_image %>
