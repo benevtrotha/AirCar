@@ -19,6 +19,7 @@
 }
 
 .card .card-img-top {
+  height: 14rem;
   width: 286px;
   height: inherit;
   border-top-left-radius: 40px;
@@ -48,10 +49,10 @@
     -5px -5px 30px 15px rgba(0,0,0,0.22);
 }
 
-// .title-white {
-//   color: white;
-// }
+.card-extra-height {
+  height: 340px;
+}
 
-// .title-black {
-//   color: black;
-// }
+.card .card-text:last-child{
+  text-align: center;
+}
