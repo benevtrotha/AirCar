@@ -22,7 +22,7 @@
 
         <div class="bookings">
           <div class="dashboard-titles">
-          Your bookings (renter)
+            Your bookings (renter)
           </div>
           <br>
           <% if @my_bookings.empty? %>
@@ -30,15 +30,13 @@
           <% else %>
             <% @my_bookings.each do |booking|%>
               <div class="card-product">
-
-              <% if booking.car.car_image %>
-                <%= image_tag booking.car.car_image, height: 300, width: 400, crop: :fill  %>
-              <% elsif booking.car.photo.attached? %>
-                <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <%= image_tag "no-image.jpeg", height: 300, width: 400, crop: :fill  %>
-              <% end %>
-
+                <% if booking.car.car_image %>
+                  <%= image_tag booking.car.car_image, height: 300, width: 400, crop: :fill  %>
+                <% elsif booking.car.photo.attached? %>
+                  <%= cl_image_tag booking.car.photo.key, height: 300, width: 400, crop: :fill %>
+                <% else %>
+                  <%= image_tag "no-image.jpeg", height: 300, width: 400, crop: :fill  %>
+                <% end %>
                 <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
                   <div class="pr-4">
                     <p><strong>Brand: </strong><%=booking.car.brand%></p>
@@ -65,70 +63,72 @@
   <div class="tab-pane fade" id="myCars" role="tabpanel" aria-labelledby="myCars-tab">
     <div class="container">
       <div class="d-flex">
-
         <div class="bookings pr-5">
           <div class="dashboard-titles">
           These are your cars currently booked:
-
-      <div class="bookings">
-      <h3>Your cars (owner)</h3>
-        <% if current_user.cars.empty? %>
-            <h5>You have no cars listed.</h5>
-        <% else %>
-        <% current_user.cars.each do |car|%>
-          <div class="card-product">
-          <% if car.car_image %>
-            <%= image_tag car.car_image %>
-          <% elsif car.photo.attached? %>
-            <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <%= image_tag "no-image.jpeg" %>
-          <% end %>
-            <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
-              <div class="pr-4">
-                <p><strong>Brand: </strong><%= car.brand %></p>
-                <p><strong>Model: </strong><%= car.car_type %></p>
-                <p><strong>Description: </strong><%= car.description%></p>
-                <p><strong>Location: </strong><%= car.location %></p>
-                <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
-              </div>
-            </div>
-          <% end %>
-          <% end %>
           </div>
           <br>
+          <div class="bookings">
             <% if current_user.cars.empty? %>
-              <h5>You have no cars listed.</h5>
+                <h5>You have no cars listed.</h5>
             <% else %>
               <% current_user.cars.each do |car|%>
-                <% if car.bookings.size > 0 %>
-
-                  <div class="card-product">
-                    <% if car.car_image %>
-                      <%= image_tag car.car_image, height: 300, width: 500, crop: :fill %>
-                    <% elsif car.photo.attached? %>
-                      <%= cl_image_tag car.photo.key, height: 300, width: 500, crop: :fill %>
-                    <% else %>
-                      <%= image_tag “no-image.jpeg”, height: 300, width: 500, crop: :fill %>
-                    <% end %>
-
-                    <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
-                      <div class="pr-4">
-                        <p><strong>Brand: </strong><%= car.brand %></p>
-                        <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
-                      </div>
-                      <div>
-                        <% car.bookings.each do |booking| %>
-                          <p><strong>Start Date: </strong><%=booking.start_on.strftime("%B %d, %Y")%></p>
-                          <p><strong>End Date: </strong><%=booking.end_on.strftime("%B %d, %Y")%></p>
-                        <% end %>
-                      </div>
+                <div class="card-product">
+                  <% if car.car_image %>
+                    <%= image_tag car.car_image %>
+                  <% elsif car.photo.attached? %>
+                    <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+                  <% else %>
+                    <%= image_tag "no-image.jpeg" %>
+                  <% end %>
+                  <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
+                    <div class="pr-4">
+                      <p><strong>Brand: </strong><%= car.brand %></p>
+                      <p><strong>Model: </strong><%= car.car_type %></p>
+                      <p><strong>Description: </strong><%= car.description%></p>
+                      <p><strong>Location: </strong><%= car.location %></p>
+                      <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
                     </div>
                   </div>
-                  <br>
-                <% end %>
+                </div>
+                <br>
               <% end %>
+            <% end %>
+          </div>
+          <br>
+          <% if current_user.cars.empty? %>
+            <h5>You have no cars listed.</h5>
+          <% else %>
+            <% current_user.cars.each do |car|%>
+              <% if car.bookings.size > 0 %>
+                <div class="card-product">
+                  <% if car.car_image %>
+                    <%= image_tag car.car_image, height: 300, width: 500, crop: :fill %>
+                  <% elsif car.photo.attached? %>
+                    <%= cl_image_tag car.photo.key, height: 300, width: 500, crop: :fill %>
+                  <% else %>
+                    <%= image_tag “no-image.jpeg”, height: 300, width: 500, crop: :fill %>
+                  <% end %>
 
+                  <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
+                    <div class="pr-4">
+                      <p><strong>Brand: </strong><%= car.brand %></p>
+                      <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
+                    </div>
+                    <div>
+                      <% car.bookings.each do |booking| %>
+                        <p><strong>Start Date: </strong><%=booking.start_on.strftime("%B %d, %Y")%></p>
+                        <p><strong>End Date: </strong><%=booking.end_on.strftime("%B %d, %Y")%></p>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% else %>
+                <div>
+                  You have no bookings. :-(
+                </div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
 
@@ -137,34 +137,32 @@
           Your cars (owner)
           </div>
           <br>
-            <% if current_user.cars.empty? %>
-                <h5>You have no cars listed.</h5>
-            <% else %>
-            <% current_user.cars.each do |car|%>
-              <div class="card-product">
-                <% if car.car_image %>
-                  <%= image_tag car.car_image, height: 300, width: 500, crop: :fill %>
-                <% elsif car.photo.attached? %>
-                  <%= cl_image_tag car.photo.key, height: 300, width: 500, crop: :fill %>
-                <% else %>
-                  <%= image_tag "no-image.jpeg", height: 300, width: 400, crop: :fill %>
-                <% end %>
-                <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
-                  <div class="pr-4">
-                    <p><strong>Brand: </strong><%= car.brand %></p>
-                    <p><strong>Model: </strong><%= car.car_type %></p>
-                    <p><strong>Description: </strong><%= car.description%></p>
-                    <p><strong>Location: </strong><%= car.location %></p>
-                    <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
-                  </div>
+          <% if current_user.cars.empty? %>
+              <h5>You have no cars listed.</h5>
+          <% else %>
+          <% current_user.cars.each do |car|%>
+            <div class="card-product">
+              <% if car.car_image %>
+                <%= image_tag car.car_image, height: 300, width: 500, crop: :fill %>
+              <% elsif car.photo.attached? %>
+                <%= cl_image_tag car.photo.key, height: 300, width: 500, crop: :fill %>
+              <% else %>
+                <%= image_tag "no-image.jpeg", height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
+                <div class="pr-4">
+                  <p><strong>Brand: </strong><%= car.brand %></p>
+                  <p><strong>Model: </strong><%= car.car_type %></p>
+                  <p><strong>Description: </strong><%= car.description%></p>
+                  <p><strong>Location: </strong><%= car.location %></p>
+                  <p><strong>Price: </strong>$<%=number_with_delimiter(car.price)%></p>
                 </div>
               </div>
-              <br>
-              <% end %>
+            </div>
+            <br>
             <% end %>
-          </div>
+          <% end %>
         </div>
-
       </div>
     </div>
   </div>
