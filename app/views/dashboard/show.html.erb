@@ -44,7 +44,7 @@
               <% elsif car.photo.attached? %>
                 <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
               <% else %>
-                <%#placeholder %>
+                <%= image_tag "no-image.jpeg" %>
               <% end %>
                 <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
                   <div class="pr-4">
@@ -76,7 +76,7 @@
           <% elsif car.photo.attached? %>
             <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
           <% else %>
-            <%#placeholder %>
+            <%= image_tag "no-image.jpeg" %>
           <% end %>
             <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
               <div class="pr-4">
