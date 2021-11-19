@@ -39,7 +39,13 @@
           <% current_user.cars.each do |car|%>
             <% if car.bookings.size > 0 %>
               <div class="card-product">
-                <%= image_tag(car.car_image, class:"img-box-card") %>
+              <% if car.car_image %>
+                <%= image_tag car.car_image %>
+              <% elsif car.photo.attached? %>
+                <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%#placeholder %>
+              <% end %>
                 <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
                   <div class="pr-4">
                     <p><strong>Brand: </strong><%= car.brand %></p>
@@ -65,7 +71,13 @@
         <% else %>
         <% current_user.cars.each do |car|%>
           <div class="card-product">
-            <%= image_tag(car.car_image, class:"img-box-card") %>
+          <% if car.car_image %>
+            <%= image_tag car.car_image %>
+          <% elsif car.photo.attached? %>
+            <%= cl_image_tag car.photo.key, height: 300, width: 400, crop: :fill %>
+          <% else %>
+            <%#placeholder %>
+          <% end %>
             <div class="d-flex p-2 flex-grow-1 justify-content-between card-product-infos">
               <div class="pr-4">
                 <p><strong>Brand: </strong><%= car.brand %></p>
